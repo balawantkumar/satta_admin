@@ -14,6 +14,16 @@ class Contactus extends StatefulWidget {
 
 class _ContactusState extends State<Contactus> {
 
+
+  String email="info@digitalutilization.com";
+  _launchEmail() async {
+    if (await canLaunch("mailto:$email")) {
+      await launch("mailto:$email");
+    } else {
+      throw 'Could not launch';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -84,25 +94,29 @@ class _ContactusState extends State<Contactus> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(
-                            Icons.call,
-                            color: appcolor().ambercolor,
-                            size: 30,
-                          ),
-                          Icon(
-                            Icons.email_outlined,
-                            color: appcolor().ambercolor,
-                            size: 30,
+                          InkWell(
+                            onTap: () => launch("tel:// 1800-120-1740"),
+                            child: Icon(
+                              Icons.call,
+                              color: appcolor().ambercolor,
+                              size: 30,
+                            ),
                           ),
                           InkWell(
-                            onTap: () async {
-                              const url = 'https://web.whatsapp.com/';
-                              if (await canLaunch(url)) {
-                                await launch(url, forceWebView: true, enableJavaScript: true);
-                              } else {
-                                throw 'Could not launch $url';
-                              }
+                            onTap: (){
+                              _launchEmail();
                             },
+                            child: Icon(
+                              Icons.email_outlined,
+                              color: appcolor().ambercolor,
+                              size: 30,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async => await launch(
+                                "https://wa.me/?text=Hello"
+                                // "https://wa.me/${9161470607}?text=Hello"
+                            ),
                             child: Image.asset(
                               "assets/images/whatsappIcon.png",
                               height: 45,
