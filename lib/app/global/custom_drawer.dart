@@ -11,7 +11,9 @@ import 'package:satta_admin/app/global/share_Page.dart';
 import '../auth/view/login_view.dart';
 import 'History/History.dart';
 import 'Wallet/WalletPage.dart';
+import 'complaintScreen.dart';
 import 'contactus.dart';
+import 'feedBackScreen.dart';
 
 class custom_drawer extends StatelessWidget {
   custom_drawer({super.key});
@@ -162,6 +164,27 @@ class custom_drawer extends StatelessWidget {
                 Get.to(Notifications());
               },
             ),
+
+
+            drawerItemWidget(
+              text: 'Feedback'.tr,
+              iconData: Icons.feedback_outlined,
+              callback: () {
+                Get.to(FeedBackScreen());
+              },
+            ),
+
+
+            drawerItemWidget(
+              text: 'Complaint'.tr,
+              iconData: Icons.comment_bank_outlined,
+              callback: () {
+                Get.to(ComplaintScreen());
+              },
+            ),
+
+
+
             drawerItemWidget(
               text: 'Logout'.tr,
               iconData: Icons.logout,

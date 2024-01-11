@@ -162,21 +162,18 @@ class _login_viewState extends State<login_view> {
                         color: appcolor().ambercolor,
                         fontSize: 18,
                       ),
-                      suffixIcon: IconButton(
+                      suffixIcon: InkWell(
+                        onTap: (){
 
-                        color: appcolor().ambercolor,
-                        icon: Icon(passwordVisible
-                            ? Icons.visibility_off
-                            : Icons.visibility),
-                        onPressed: () {
                           setState(() {
                             passwordVisible = !passwordVisible;
                           });
+
                         },
+                        child: Icon(passwordVisible
+                            ? Icons.visibility_off
+                            : Icons.visibility,color: appcolor().ambercolor,),
                       ),
-
-
-
 
 
 

@@ -49,47 +49,7 @@ class History_view extends StatelessWidget {
             ),
             child: CustomScrollView(
               slivers: [
-                // SliverAppBar(
-                //   automaticallyImplyLeading: false,
-                //   backgroundColor: Colors.transparent,
-                //   expandedHeight: Get.height * 0.09,
-                //   // snap: true,
-                //   floating: true,
-                //   flexibleSpace: FlexibleSpaceBar(
-                //     background: Row(
-                //       mainAxisAlignment: MainAxisAlignment.start,
-                //       children: [
-                //         // Image(
-                //         //   image: AssetImage(
-                //         //     'assets/images/logo 1.png',
-                //         //   ),
-                //         //   height: Get.height * 0.08,
-                //         // ),
-                //         // InkWell(
-                //         //   onTap: (){
-                //         //     urlController.LaunchUrl();
-                //         //   },
-                //         //   child: Container(
-                //         //     height: Get.height*0.08,
-                //         //     width: Get.width*0.27,
-                //         //     decoration: BoxDecoration(
-                //         //       image: DecorationImage(
-                //         //         image: AssetImage('assets/images/674 1.png'),
-                //         //         fit: BoxFit.fill,
-                //         //       )
-                //         //     ),
-                //         //   ),
-                //         // ),
-                //         // InkWell(
-                //         //   onTap: () {
-                //         //     Get.off(profile_view());
-                //         //   },
-                //         //   child: Icon(Icons.more_horiz_outlined, color: appcolor().am,)
-                //         // ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
+
                 SliverList.list(children: [
                   SizedBox(
                     height: Get.height * 0.1,

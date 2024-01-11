@@ -183,7 +183,7 @@ class Bid_History_view extends StatelessWidget {
                                 5,
                               ),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
+                                  horizontal: 6, vertical: 10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                   5,
@@ -193,7 +193,7 @@ class Bid_History_view extends StatelessWidget {
                               child: Text(
                                 'Submit'.tr,
                                 style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 14,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500
                                 ),
@@ -211,11 +211,11 @@ class Bid_History_view extends StatelessWidget {
                       Table(
                         border: TableBorder.all(color: Colors.white, width: 1.5),
                         columnWidths: const <int, TableColumnWidth>{
-                          0: FixedColumnWidth(60),
-                          1: FixedColumnWidth(70),
-                          2: FixedColumnWidth(70),
-                          3: FixedColumnWidth(70),
-                          4: FixedColumnWidth(70),
+                          0: FixedColumnWidth(61),
+                          1: FixedColumnWidth(61),
+                          2: FixedColumnWidth(61),
+                          3: FixedColumnWidth(61),
+                          4: FixedColumnWidth(61),
                           // 5: FixedColumnWidth(100),
                         },
                         defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -223,30 +223,30 @@ class Bid_History_view extends StatelessWidget {
                           TableRow(
                             children: <Widget>[
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                                 child: Center(child: Text("Date",style: TextStyle(color: Colors.white),)),
                               ),
                               TableCell(
                                 verticalAlignment: TableCellVerticalAlignment.top,
                                 child: Container(
-                                  height: 50,
+                                  height: 40,
                                   color: Colors.black,
                                   child: Center(child: Text("CIN No",style: TextStyle(color: Colors.white),)),
                                 ),
                               ),
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                                 child: Center(child: Text("Name",style: TextStyle(color: Colors.white),)),
                               ),
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                                 child: Center(child: Text("Contact",style: TextStyle(color: Colors.white),)),
                               ),
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                                 child: Center(child: Text("Amount",style: TextStyle(color: Colors.white),)),
 
@@ -260,30 +260,62 @@ class Bid_History_view extends StatelessWidget {
                             ),
                             children: <Widget>[
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                               ),
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                               ),
                               Center(
                                 child: Container(
-                                  height: 50,
+                                  height: 40,
                                   color: Colors.black,
                                 ),
                               ),
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                               ),
                               Container(
-                                height: 50,
+                                height: 40,
                                 color: Colors.black,
                               ),
 
                             ],
                           ),
+
+                          TableRow(
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                            ),
+                            children: <Widget>[
+                              Container(
+                                height: 40,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 40,
+                                color: Colors.black,
+                              ),
+                              Center(
+                                child: Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Container(
+                                height: 40,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 40,
+                                color: Colors.black,
+                              ),
+
+                            ],
+                          ),
+
                         ],
                       ),
 

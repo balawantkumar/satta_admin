@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:satta_admin/app/global/History/win_History.dart';
 import '../../../Widget/contact_us.dart';
 import 'colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contactus extends StatefulWidget {
   const Contactus({super.key});
@@ -93,11 +94,21 @@ class _ContactusState extends State<Contactus> {
                             color: appcolor().ambercolor,
                             size: 30,
                           ),
-                          Image.asset(
-                            "assets/images/whatsappIcon.png",
-                            height: 45,
-                            width: 45,
-                            color: appcolor().ambercolor,
+                          InkWell(
+                            onTap: () async {
+                              const url = 'https://web.whatsapp.com/';
+                              if (await canLaunch(url)) {
+                                await launch(url, forceWebView: true, enableJavaScript: true);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+                            child: Image.asset(
+                              "assets/images/whatsappIcon.png",
+                              height: 45,
+                              width: 45,
+                              color: appcolor().ambercolor,
+                            ),
                           )
                         ],
                       ),

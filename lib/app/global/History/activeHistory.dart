@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../colors.dart';
 import 'Controller/BidHistoryController.dart';
+
 class ActiveHistoryScreen extends StatefulWidget {
   const ActiveHistoryScreen({Key? key}) : super(key: key);
 
@@ -13,6 +14,7 @@ class ActiveHistoryScreen extends StatefulWidget {
 
 class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
   bid_history_controller controller = Get.put(bid_history_controller());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,14 +33,13 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
             centerTitle: true,
             title: Container(
               child: Text(
-                'Active History'.tr,
+                'Active User'.tr,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),
               ),
             ),
-
             leading: InkWell(
                 onTap: () {
                   Navigator.pop(context);
@@ -57,7 +58,6 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
             ),
             child: CustomScrollView(
               slivers: [
-
                 SliverList.list(children: [
                   // SizedBox(
                   //   height: Get.height * 0.2,
@@ -65,6 +65,50 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
                   // SizedBox(height: 10,),
                   Column(
                     children: [
+
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(
+                            color: appcolor().ambercolor,
+                          ),
+                          color: Colors.black,
+                        ),
+                        width: Get.width * 0.84,
+                        height: Get.height * 0.065,
+                        child: Row(
+                          children: [
+                            Flexible(
+                              child: TextFormField(
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
+                                textAlignVertical: TextAlignVertical.top,
+                                decoration: InputDecoration(
+                                  counter: Offstage(),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 0),
+                                  hintText: "Search here...",
+                                  hintStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            // Icon(
+                            //   icon,
+                            //   color: appcolor().ambercolor,
+                            // ).paddingOnly(
+                            //   right: 10,
+                            // )
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 8,),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -88,24 +132,24 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
                               ),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Obx(
-                                        () => controller.startdate.value == ''
+                                    () => controller.startdate.value == ''
                                         ? Text(
-                                      'Start Date'.tr,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    )
+                                            'Start Date'.tr,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          )
                                         : Text(
-                                      '${controller.startdate.value}',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    ),
+                                            '${controller.startdate.value}',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
                                   ),
                                   Icon(
                                     Icons.date_range,
@@ -136,24 +180,24 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
                               ),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Obx(
-                                        () => controller.enddate.value == ''
+                                    () => controller.enddate.value == ''
                                         ? Text(
-                                      'End Date'.tr,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    )
+                                            'End Date'.tr,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          )
                                         : Text(
-                                      '${controller.enddate.value}',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    ),
+                                            '${controller.enddate.value}',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
                                   ),
                                   Icon(
                                     Icons.date_range,
@@ -172,7 +216,7 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
                                 5,
                               ),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
+                                  horizontal: 6, vertical: 10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                   5,
@@ -182,98 +226,190 @@ class _ActiveHistoryScreenState extends State<ActiveHistoryScreen> {
                               child: Text(
                                 'Submit'.tr,
                                 style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 14,
                                     color: Colors.white,
-                                    fontWeight: FontWeight.w500
-                                ),
+                                    fontWeight: FontWeight.w500),
                               ),
                             ),
                           ),
                         ],
                       ),
 
-
-                      SizedBox(height: 10,),
-
-                      Table(
-                        border: TableBorder.all(color: Colors.white, width: 1.5),
-                        columnWidths: const <int, TableColumnWidth>{
-                          0: FixedColumnWidth(60),
-                          1: FixedColumnWidth(70),
-                          2: FixedColumnWidth(70),
-                          3: FixedColumnWidth(70),
-                          4: FixedColumnWidth(70),
-                          // 5: FixedColumnWidth(100),
-                        },
-                        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                        children: <TableRow>[
-                          TableRow(
-                            children: <Widget>[
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                                child: Center(child: Text("Date",style: TextStyle(color: Colors.white),)),
-                              ),
-                              TableCell(
-                                verticalAlignment: TableCellVerticalAlignment.top,
-                                child: Container(
-                                  height: 50,
-                                  color: Colors.black,
-                                  child: Center(child: Text("CIN No",style: TextStyle(color: Colors.white),)),
-                                ),
-                              ),
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                                child: Center(child: Text("Name",style: TextStyle(color: Colors.white),)),
-                              ),
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                                child: Center(child: Text("Contact",style: TextStyle(color: Colors.white),)),
-                              ),
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                                child: Center(child: Text("Amount",style: TextStyle(color: Colors.white),)),
-
-                              ),
-
-                            ],
-                          ),
-                          TableRow(
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                            ),
-                            children: <Widget>[
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                              ),
-                              Center(
-                                child: Container(
-                                  height: 50,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 50,
-                                color: Colors.black,
-                              ),
-
-                            ],
-                          ),
-                        ],
+                      SizedBox(
+                        height: 10,
                       ),
 
+                      Container(
+                        height: Get.height * 0.002,
+                        color: Colors.white,
+
+
+
+
+                        child: Table(
+                          border:
+                              TableBorder.all(color: Colors.white, width: 1.5),
+                          columnWidths: const <int, TableColumnWidth>{
+                            0: FixedColumnWidth(61),
+                            1: FixedColumnWidth(61),
+                            2: FixedColumnWidth(61),
+                            3: FixedColumnWidth(61),
+                            4: FixedColumnWidth(61),
+                            // 5: FixedColumnWidth(100),
+                          },
+                          defaultVerticalAlignment:
+                              TableCellVerticalAlignment.middle,
+                          children: <TableRow>[
+                            TableRow(
+                              children: <Widget>[
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                  child: Center(
+                                      child: Text(
+                                    "Date",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                                TableCell(
+                                  verticalAlignment:
+                                      TableCellVerticalAlignment.top,
+                                  child: Container(
+                                    height: 40,
+                                    color: Colors.black,
+                                    child: Center(
+                                        child: Text(
+                                      "CIN No",
+                                      style: TextStyle(color: Colors.white),
+                                    )),
+                                  ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                  child: Center(
+                                      child: Text(
+                                    "Name",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                  child: Center(
+                                      child: Text(
+                                    "Contact",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                  child: Center(
+                                      child: Text(
+                                    "Amount",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                              ],
+                            ),
+
+
+
+                            TableRow(
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                              ),
+                              children: <Widget>[
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Center(
+                                  child: Container(
+                                    height: 40,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+
+                            TableRow(
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                              ),
+                              children: <Widget>[
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Center(
+                                  child: Container(
+                                    height: 40,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+
+
+                            TableRow(
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                              ),
+                              children: <Widget>[
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Center(
+                                  child: Container(
+                                    height: 40,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: 40,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+
+                          ],
+                        ),
+                      ),
 
                       SizedBox(
                         height: Get.height * 0.62,
